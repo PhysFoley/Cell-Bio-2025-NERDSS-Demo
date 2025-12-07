@@ -1,0 +1,88 @@
+start parameters
+    nItr = 10000000
+    timeStep = 1
+end parameters
+
+start boundaries
+    WaterBox = [500,500,500]
+    xBCtype = reflect
+    yBCtype = reflect
+    xBCtype = reflect
+end boundaries
+
+start molecules
+    L : 4500
+    A : 30
+    R : 90
+end molecules
+
+start reactions
+    #### A - L ####
+    A(bpip2) + L(head) <-> A(bpip2!1).L(head!1)
+    onRate3DMacro = 0.3
+    offRateMacro = 30.0
+    sigma = 1.0
+    norm1 = [1,0,0]
+    norm2 = [0,0,1]
+    assocAngles = [1.5708, 1.5708, M_PI, nan, M_PI]
+
+    #### A - R ####
+    A(bR,bpip2!*) + R(r) <-> A(bR!1,bpip2!*).R(r!1)
+    onRate3DMacro = 1
+    offRateMacro = 10
+    sigma = 1.0
+    norm1 = [1,0,0]
+    norm2 = [0,0,1]
+    assocAngles = [1.5708, 1.5708, 1.0472, nan, M_PI]
+
+    #### A - A ####
+    # distinct labels
+    A(bs1) + A(bs2) <-> A(bs1!1).A(bs2!1)
+    onRate3DMacro = 0.04
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+
+    A(bs1) + A(bs3) <-> A(bs1!1).A(bs3!1)
+    onRate3DMacro = 0.04
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+
+    A(bs2) + A(bs3) <-> A(bs2!1).A(bs3!1)
+    onRate3DMacro = 0.04
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+
+    # same labels
+    A(bs1) + A(bs1) <-> A(bs1!1).A(bs1!1)
+    onRate3DMacro = 0.02
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+
+    A(bs2) + A(bs2) <-> A(bs2!1).A(bs2!1)
+    onRate3DMacro = 0.02
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+
+    A(bs3) + A(bs3) <-> A(bs3!1).A(bs3!1)
+    onRate3DMacro = 0.02
+    offRateMacro = 10
+    norm1 = [0,0,1]
+    norm2 = [0,0,1]
+    length3Dto2D = 10
+    assocAngles = [M_PI, M_PI, nan, nan, 0]
+end reactions

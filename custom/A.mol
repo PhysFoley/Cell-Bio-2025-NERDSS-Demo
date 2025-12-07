@@ -1,0 +1,27 @@
+##
+# A.mol
+##
+
+Name = A
+checkOverlap = true
+
+# translational diffusion constants
+D       = [25.0,25.0,25.0]
+
+# rotational diffusion constants
+Dr      = [0.5,0.5,0.5]
+
+# Coordinates
+COM     0.0000    0.0000    0.0000
+bs1     1.0000    1.7321    0.0000
+bs2     1.0000   -1.7321    0.0000
+bs3    -2.0000    0.0000    0.0000
+bR      0.0000    0.0000   -2.0000
+bpip2   0.0000    0.0000   -3.0000
+
+bonds = 5
+com bs1
+com bs2
+com bs3
+com bR
+bR  bpip2
